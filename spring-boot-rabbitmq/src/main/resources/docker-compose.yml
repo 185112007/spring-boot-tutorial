@@ -1,12 +1,10 @@
-# Use postgres/example user/password credentials
 version: '3.1'
-
 services:
-
-  db:
-    image: postgres
-    restart: always
+  spboot-rabbitmq:
+    image: rabbitmq:3-management
     ports:
-      - "5432:5432"
+      - "5672:5672"
+      - "15672:15672"
     environment:
-      POSTGRES_PASSWORD: root
+      - RABBITMQ_DEFAULT_USER=user
+      - RABBITMQ_DEFAULT_PASS=password
