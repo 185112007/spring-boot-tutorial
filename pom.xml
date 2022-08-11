@@ -8,6 +8,7 @@
       <module>spring-data-jpa-postgresql</module>
       <module>spring-boot-api-doc</module>
       <module>spring-boot-rabbitmq</module>
+      <module>spring-boot-dockerization</module>
   </modules>
 
   <parent>
