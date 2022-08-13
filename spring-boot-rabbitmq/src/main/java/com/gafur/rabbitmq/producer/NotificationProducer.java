@@ -1,6 +1,6 @@
-package com.gafur.producer;
+package com.gafur.rabbitmq.producer;
 
-import com.gafur.model.Notification;
+import com.gafur.rabbitmq.model.Notification;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

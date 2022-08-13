@@ -1,7 +1,7 @@
-package com.gafur.handler;
+package com.gafur.rabbitmq.handler;
 
-import com.gafur.model.Notification;
-import com.gafur.producer.NotificationProducer;
+import com.gafur.rabbitmq.model.Notification;
+import com.gafur.rabbitmq.producer.NotificationProducer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

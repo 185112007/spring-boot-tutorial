@@ -1,10 +1,9 @@
-package com.gafur.controller;
+package com.gafur.apidoc.controller;
 
-import com.gafur.model.Pet;
+import com.gafur.apidoc.model.Pet;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import io.swagger.annotations.ApiResponse;
 import lombok.NonNull;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

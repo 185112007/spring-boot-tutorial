@@ -1,6 +1,6 @@
-package com.gafur.consumer;
+package com.gafur.rabbitmq.consumer;
 
-import com.gafur.model.Notification;
+import com.gafur.rabbitmq.model.Notification;
 
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.stereotype.Service;

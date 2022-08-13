@@ -1,4 +1,4 @@
-package com.gafur.model;
+package com.gafur.apidoc.model;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

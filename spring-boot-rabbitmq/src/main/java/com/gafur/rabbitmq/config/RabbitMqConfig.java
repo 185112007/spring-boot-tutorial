@@ -1,4 +1,4 @@
-package com.gafur.config;
+package com.gafur.rabbitmq.config;
 
 
 import org.springframework.amqp.core.Binding;

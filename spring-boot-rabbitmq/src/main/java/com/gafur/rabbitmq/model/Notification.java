@@ -1,4 +1,4 @@
-package com.gafur.model;
+package com.gafur.rabbitmq.model;
 
 import java.io.Serializable;
 import java.time.LocalDate;

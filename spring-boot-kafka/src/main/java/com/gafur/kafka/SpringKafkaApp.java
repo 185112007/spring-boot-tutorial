@@ -1,12 +1,11 @@
-package com.gafur;
+package com.gafur.kafka;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
-public class ApiDocApp {
+public class SpringKafkaApp {
     public static void main(String[] args) {
-        SpringApplication.run(ApiDocApp.class, args);
+        SpringApplication.run(SpringKafkaApp.class, args);
     }
 }
