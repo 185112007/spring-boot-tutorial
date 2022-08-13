@@ -15,6 +15,7 @@
       <module>redis-how-to</module>
       <module>spring-boot-redis-cache</module>
       <module>spring-boot-websocket</module>
+      <module>spring-boot-pagination</module>
   </modules>
 
   <parent>
