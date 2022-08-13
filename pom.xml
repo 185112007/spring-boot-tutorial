@@ -12,6 +12,8 @@
       <module>spring-boot-aop</module>
       <module>spring-boot-graphql</module>
       <module>spring-bot-rest-template</module>
+      <module>redis-how-to</module>
+      <module>spring-boot-redis-cache</module>
   </modules>
 
   <parent>
