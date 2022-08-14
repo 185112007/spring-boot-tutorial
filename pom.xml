@@ -19,6 +19,8 @@
       <module>spring-boot-events</module>
       <module>spring-boot-gridfs-fileupload</module>
       <module>spring-boot-kafka</module>
+      <module>spring-boot-flyway</module>
+      <module>spring-boot-api-versioning</module>
   </modules>
 
   <parent>
