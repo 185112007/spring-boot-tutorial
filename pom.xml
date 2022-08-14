@@ -22,6 +22,7 @@
       <module>spring-boot-flyway</module>
       <module>spring-boot-api-versioning</module>
       <module>spring-boot-exception-handling</module>
+      <module>spring-boot-hazelcast-cache</module>
   </modules>
 
   <parent>
