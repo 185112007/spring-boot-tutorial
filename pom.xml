@@ -21,6 +21,7 @@
       <module>spring-boot-kafka</module>
       <module>spring-boot-flyway</module>
       <module>spring-boot-api-versioning</module>
+      <module>spring-boot-exception-handling</module>
   </modules>
 
   <parent>
