@@ -1,0 +1,10 @@
+#logging:
+#  level:
+#    root: INFO
+#    org:
+#      springframework:
+#        web: INFO
+#    com.gafur.logging.api: DEBUG
+spring:
+  profiles:
+    active: prod
