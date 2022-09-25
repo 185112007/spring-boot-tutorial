@@ -1,9 +1,21 @@
 package com.gafur.junitdemo;
 
+import java.util.List;
+
 public class DemoUtils {
 
     private String academy = "Luv2Code Academy";
     private String academyDuplicate = academy;
+    private String[] firstThreeLettersOfAlphabet = {"A", "B", "C"};
+    private List<String> academyInList = List.of("luv", "2", "code");
+
+    public String[] getFirstThreeLettersOfAlphabet() {
+        return firstThreeLettersOfAlphabet;
+    }
+
+    public List<String> getAcademyInList() {
+        return academyInList;
+    }
 
     public String getAcademy() {
         return academy;
