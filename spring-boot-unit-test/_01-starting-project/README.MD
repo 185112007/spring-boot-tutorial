@@ -147,4 +147,38 @@ expectedType tipinde bir exception firlatilirsa test basarilidir, aksi durumda f
 assertDoesNotThrow(executable, message) - seklinde bir arayuzu vardir. executable calistiginda
 herhangi bir exception firlatmiyorsa test basarilidir, aksi durumda fail olur.
 
-## Display name
+## Ordering
+
+Bir test sinifina ait test metodlarini belli bir sira ile calismasini saglamak icin @TestMethodOrder annotasyonu
+kullanilir. Farkli siralama yontemleri mevcuttur: metod ismine, display name'ine, veya direkt olarak her bir 
+metodu @Order ile annote ederek siralanabilir.
+
+### @TestMethodOrder(MethodOrderer.MethodName.class)
+
+MethodOrderer.MethodName - metod ismine gore test metodlarini siralar.
+
+### @TestMethodOrder(MethodOrderer.DisplayName.class)
+
+MethodOrderer.DisplayName - adindanda anlasildigi gibi, @DisplayName'ine gore siralama yapacaktir.
+
+### @TestMethodOrder(MethodOrderer.OrderAnnotation.class) & @Order(priority)
+
+OrderAnnotation - bu annotasyon ile istedigimiz test metodu arayuzunde @Order ile calistirma onceligi verebiliris.
+Priority degeri ne kadar kucuk ise onceligi daha yuksektir(burada eksi sayilarda verilebilir)
+
+## Code Coverage with Maven
+
+Maven JUnit 5 testlerini yakalayabilmesi icin maven-surefire-plugin pluginini pom.xml eklenmelidir.
+
+```xml
+
+<build>
+    <plugins>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>3.0.0-M5</version>
+        </plugin>
+    </plugins>
+</build>
+```
