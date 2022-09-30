@@ -85,6 +85,12 @@ class DemoUtilsTest {
                 "Lines should match");
     }
 
+    @DisplayName("Multiply")
+    @Test
+    void testMultiply(){
+        assertEquals(12, demoUtils.multiply(4,3), "4 * 3 must be 12");
+    }
+
     /*
     @AfterEach
     void tearDownAfterEach(){
