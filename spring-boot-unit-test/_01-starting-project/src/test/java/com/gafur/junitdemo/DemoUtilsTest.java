@@ -7,6 +7,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class DemoUtilsTest {
 
     DemoUtils demoUtils;
@@ -18,6 +19,7 @@ class DemoUtilsTest {
 
     @Test
     @DisplayName("Equals and Not Equals")
+    @Order(1)
     void testEqualsAndNotEquals(){
 
         assertEquals(6, demoUtils.add(2,4), "2 + 4 must be 6");
@@ -26,6 +28,7 @@ class DemoUtilsTest {
 
     @Test
     @DisplayName("Null and Not Null")
+    @Order(0)
     void testNullAndNotNull(){
 
         String str1 = null;
@@ -46,6 +49,7 @@ class DemoUtilsTest {
 
     @DisplayName("True and False")
     @Test
+    @Order(30)
     void testTrueFalse(){
         int gradeOne = 10;
         int gradeTwo = 5;
@@ -74,6 +78,7 @@ class DemoUtilsTest {
 
     @DisplayName("Lines match")
     @Test
+    @Order(50)
     void testLinesMatch(){
         List<String> theList = List.of("luv", "2", "code");
 
@@ -95,10 +100,16 @@ class DemoUtilsTest {
 
     @DisplayName("Timeout")
     @Test
-    void testTimeout(){
+    void testTimeout() {
         assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {
             demoUtils.checkTimeout();
         }, "Method should execute in 3 seconds");
+    }
+
+    @DisplayName("Multiply")
+    @Test
+    void testMultiply(){
+        assertEquals(12, demoUtils.multiply(4,3), "4 * 3 must be 12");
     }
 
     /*
