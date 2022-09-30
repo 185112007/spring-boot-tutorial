@@ -1,9 +1,9 @@
-# Junit Temelleri
+# Junit Notlarim
 
 ## Test sinifi ve metodlari hakkinda
 
 Test sinifi package private olması gerekir. Yani herhangi bir
-erisim turunu belirmeyecegiz, default olarak package private 
+erisim turunu belirmeyecegiz, default olarak package private
 olacaktir. Public, protected veya private gibi erisim izinleri
 yazmayacagiz.
 
@@ -51,7 +51,7 @@ metodlar static olmak zorundadir.
 
 #### @DisplayName(title)
 
-@DisplayName - test sinifi veya test metodu icin ozel bir gorunen ad 
+@DisplayName - test sinifi veya test metodu icin ozel bir gorunen ad
 bildirmek icin kullanilir.
 
 ## Assertions
@@ -59,14 +59,14 @@ bildirmek icin kullanilir.
 ### Equals & NotEquals
 
 assertEqual(expected, actual, message) - seklinde bir
-arayuzu vardir. 
+arayuzu vardir.
 
 - expected - test metodunu calistirdiktan
-sonra beklediginiz degerdir.
+  sonra beklediginiz degerdir.
 - actual - test metodunu calistirdiktan sonra aldiginiz sonuctur
 - message - test metodu basarisiz oldugunda konsola yazilacak mesajdir
 
-assertNotEquals(unexpected, actual, message) - 
+assertNotEquals(unexpected, actual, message) -
 seklinde bir arayuzu vardir.
 
 - unexpected - test metodu calistirdiktan sonra beklemediginiz deger
@@ -85,7 +85,7 @@ metod cagrildiginda null dondurmezse test basarilidir, aksi halde fail olur.
 assertTrue(condition, message) - seklinde bir arayuzu vardir. Bir metod
 calistiginda geriye true dondururse basarilidir, aksi durumda fail olur.
 
-assertFalse(condition, message) - seklinde arayuzu vardir. Metod 
+assertFalse(condition, message) - seklinde arayuzu vardir. Metod
 calistiginda geriye false dondurulurse basarilidir, aksi durumda
 fail olur.
 
@@ -101,7 +101,7 @@ ediyorlarsa test basarilidir, aksi durumda fail olur.
 
 ### ArrayEquals, IterableEquals, LinesMatch
 
-assertArrayEquals(expected[], actual[], message) - arayuzu vardir. Bir metod 
+assertArrayEquals(expected[], actual[], message) - arayuzu vardir. Bir metod
 calistirildiginda expected ve actual dizi elemanlari bir birine esitse basarilidir,
 aksi durumda fail olur.
 
@@ -147,31 +147,29 @@ expectedType tipinde bir exception firlatilirsa test basarilidir, aksi durumda f
 assertDoesNotThrow(executable, message) - seklinde bir arayuzu vardir. executable calistiginda
 herhangi bir exception firlatmiyorsa test basarilidir, aksi durumda fail olur.
 
-## Ordering
+## Running Tests in Order
 
-Bir test sinifina ait test metodlarini belli bir sira ile calismasini saglamak icin @TestMethodOrder annotasyonu
-kullanilir. Farkli siralama yontemleri mevcuttur: metod ismine, display name'ine, veya direkt olarak her bir 
-metodu @Order ile annote ederek siralanabilir.
+### @TestMethodOrder
 
-### @TestMethodOrder(MethodOrderer.MethodName.class)
+@TestMethodOrder - Test metodlari şcşn siralama algoritmasi belirlemek icin kullanilir. 
 
-MethodOrderer.MethodName - metod ismine gore test metodlarini siralar.
+### Specify Method Order
 
-### @TestMethodOrder(MethodOrderer.DisplayName.class)
-
-MethodOrderer.DisplayName - adindanda anlasildigi gibi, @DisplayName'ine gore siralama yapacaktir.
-
-### @TestMethodOrder(MethodOrderer.OrderAnnotation.class) & @Order(priority)
-
-OrderAnnotation - bu annotasyon ile istedigimiz test metodu arayuzunde @Order ile calistirma onceligi verebiliris.
-Priority degeri ne kadar kucuk ise onceligi daha yuksektir(burada eksi sayilarda verilebilir)
+- @TestMethodOrder(MethodOrderer.DisplayName.class) - bu algoritma ile @DisplayName'de verdigimiz
+isime gore siralama yapilir.
+- @TestMethodOrder(MethodOrderer.MethodName.class) - bu algoritma ile metod ismine gore siralama
+yapilir.
+- @TestMethodOrder(MethodOrderer.Random.class) - bu algoritma ile rastgele olarak siralama
+yapilir
+- @TestMethodOrder(MethodOrderer.OrderAnnotation.class) - bu yontem ile her bir metoda verecegimiz
+@Order(priority) anotasyonun verdigimiz onceligine(priority) gore siralama yapilir. Burada
+oncelik(priority) degeri eksi deger alabilir, en dusuk deger en yuksek oncelige sahiptir.
 
 ## Code Coverage with Maven
 
-Maven JUnit 5 testlerini yakalayabilmesi icin maven-surefire-plugin pluginini pom.xml eklenmelidir.
+Maven varsayilan olarak JUnit 5 test siniflarini bulamaz.
 
 ```xml
-
 <build>
     <plugins>
         <plugin>
@@ -182,3 +180,40 @@ Maven JUnit 5 testlerini yakalayabilmesi icin maven-surefire-plugin pluginini po
     </plugins>
 </build>
 ```
+
+Yukaridaki plugin eklediktek sonra `mvn clean test` ile test siniflarini calistirabiliris.
+
+Test raporunu olusturmak icin maven-surefire-report-plugin plugini build
+altina asagidaki gibi eklenmelidir:
+
+```xml
+<build>
+  <plugins>
+    <!-- other plugins goes here -->
+    <plugin>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-surefire-report-plugin</artifactId>
+      <version>3.0.0-M5</version>
+      <executions>
+        <execution>
+          <phase>test</phase>
+          <goals>
+            <goal>report</goal>
+          </goals>
+        </execution>
+      </executions>
+    </plugin>
+  </plugins>
+</build>
+```
+
+Report pluginini ekledikten sonra test raporlarini asagidaki komut ile otomatik olarak olusturabiliris:
+
+```shell
+mvn clean test
+mvn site -DgenerateReports=false
+```
+
+Komut calistiktan sonra `projectFolder/target/site/surefire-report.html` html formatinda test raporu 
+olusturulacaktir.
+

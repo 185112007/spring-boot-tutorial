@@ -27,14 +27,24 @@
 
     <build>
         <plugins>
-            <!-- used for accessing Junit5 test classes -->
+            <!-- 1. used for accessing Junit5 test classes -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
+
+                <!-- 3. add this configuration to generate report if test fails -->
+                <configuration>
+                    <testFailureIgnore>true</testFailureIgnore>
+
+                    <!-- 4. add this configuration to configure reports for @DisplayName -->
+                    <statelessTestsetReporter implementation="org.apache.maven.plugin.surefire.extensions.junit5.JUnit5Xml30StatelessReporter">
+                        <usePhrasedTestCaseMethodName>true</usePhrasedTestCaseMethodName>
+                    </statelessTestsetReporter>
+                </configuration>
             </plugin>
 
-            <!-- generate test report plugin -->
+            <!-- 2. generate test report plugin -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
