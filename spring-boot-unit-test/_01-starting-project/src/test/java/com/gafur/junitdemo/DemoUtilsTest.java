@@ -2,6 +2,7 @@ package com.gafur.junitdemo;
 
 import org.junit.jupiter.api.*;
 
+import java.time.Duration;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -83,6 +84,26 @@ class DemoUtilsTest {
 
         assertLinesMatch(theList, demoUtils.getAcademyInList(),
                 "Lines should match");
+    }
+
+    @DisplayName("Throws and Does Not Throw")
+    @Test
+    void testThrowsAndDoesNotThrow(){
+        assertThrows(Exception.class, () ->{
+            demoUtils.throwsException(-1);
+        }, "Should throw exception");
+
+        assertDoesNotThrow(() -> {
+            demoUtils.throwsException(1);
+        }, "Should not throw exception");
+    }
+
+    @DisplayName("Timeout")
+    @Test
+    void testTimeout() {
+        assertTimeoutPreemptively(Duration.ofSeconds(3), () -> {
+            demoUtils.checkTimeout();
+        }, "Method should execute in 3 seconds");
     }
 
     @DisplayName("Multiply")
