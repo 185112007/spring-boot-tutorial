@@ -7,6 +7,7 @@
     <modules>
         <module>_01-starting-project</module>
         <module>_02-starting-project</module>
+        <module>_03-starting-project</module>
     </modules>
     <parent>
         <artifactId>spring-examples</artifactId>

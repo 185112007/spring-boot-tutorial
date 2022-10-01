@@ -17,7 +17,7 @@ import java.util.Arrays;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest(classes = MvcTestingExampleApp.class)
-public class AppExampleTest {
+class AppExampleTest {
 
     private static int count = 0;
 
