@@ -6,6 +6,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>_01-starting-project</module>
+        <module>_02-starting-project</module>
     </modules>
     <parent>
         <artifactId>spring-examples</artifactId>
